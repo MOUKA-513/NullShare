@@ -32,6 +32,20 @@ pip install nullshare
 # Or install from source
 git clone https://github.com/MOOKA-513/NullShare.git
 cd NullShare
+## STEP 1: Create Virtual Environment and Install Dependencies ( very importantt )
+bash
+# Create virtual environment
+python3 -m venv venv
+
+# Activate it
+# On Linux/Mac:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
+
+# Install dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
 pip install -e .
 Basic Usage
 bash
