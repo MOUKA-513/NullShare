@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NullShare - Download Files</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header h1 i {
+            font-size: 1.2em;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .server-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .server-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .files-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            color: #4f46e5;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .file-list {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .file-item {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .file-item:hover {
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.1);
+        }
+        
+        .file-info {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #1e293b;
+            margin-bottom: 5px;
+            word-break: break-all;
+        }
+        
+        .file-meta {
+            font-size: 0.9em;
+            color: #64748b;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .download-all {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            padding: 15px 30px;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        
+        .no-files {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+        
+        .instructions {
+            background: #f0f9ff;
+            border: 2px solid #bae6fd;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #0369a1;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin: 8px 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .stat-box {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #64748b;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .file-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>
+                <span>📡 NullShare</span>
+            </h1>
+            <p class="subtitle">Download files directly from this device</p>
+            
+            <div class="server-info">
+                <p><strong>🕐 Server started:</strong> {{ server_start }}</p>
+                <p><strong>📁 Total files:</strong> {{ total_files }}</p>
+                <p><strong>📱 Connect from:</strong> Same WiFi network required</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="files-section">
+                <h2 class="section-title">
+                    <span>📂 Available Files</span>
+                </h2>
+                
+                {% if files %}
+                <div class="file-list">
+                    {% for file in files %}
+                    <div class="file-item">
+                        <div class="file-info">
+                            <div class="file-name">
+                                {{ file.name }}
+                                {% if file.type == 'folder' %}
+                                    <span style="color: #10b981;"> (Zipped Folder)</span>
+                                {% endif %}
+                            </div>
+                            <div class="file-meta">
+                                {{ file.size_human }}
+                                {% if file.file_count %}
+                                    • {{ file.file_count }} files
+                                {% endif %}
+                            </div>
+                        </div>
+                        <a href="{{ file.url }}{% if access_token %}?token={{ access_token }}{% endif %}" class="download-btn">
+                            ⬇️ Download
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#" class="download-btn download-all" id="downloadAll">
+                        ⬇️ Download All as ZIP
+                    </a>
+                </div>
+                {% else %}
+                <div class="no-files">
+                    <h3>No files available for download</h3>
+                    <p>The server has no files to share.</p>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="instructions">
+                <h3>📋 How to Use</h3>
+                <ul>
+                    <li>Make sure your phone is connected to the same WiFi network</li>
+                    <li>Tap any download button to get the file</li>
+                    <li>For folders, you'll get a ZIP file containing all contents</li>
+                    <li>Files transfer at local network speed (very fast!)</li>
+                </ul>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value">{{ total_files }}</div>
+                    <div class="stat-label">Files Available</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">{{ files|length }}</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">🔒</div>
+                    <div class="stat-label">
+                        {% if access_token %}
+                        Password Protected
+                        {% else %}
+                        Open Access
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Download all as ZIP functionality
+        document.getElementById('downloadAll')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Show loading
+            const originalText = this.innerHTML;
+            this.innerHTML = '🔄 Creating ZIP...';
+            this.disabled = true;
+            
+            // Create ZIP on server side (would need backend support)
+            // For now, alert the user
+            alert('This feature requires server-side implementation. Currently, please download files individually or use the folder zip feature.');
+            
+            // Restore button
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+            }, 2000);
+        });
+        
+        // Auto-refresh if live mode
+        if (window.location.search.includes('live=true')) {
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000); // Refresh every 5 seconds
+        }
+    </script>
+</body>
+</html>
