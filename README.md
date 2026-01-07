@@ -25,66 +25,58 @@
 
 ### Installation
 
-```bash
 # Install from PyPI (coming soon)
-pip install nullshare
+  pip install nullshare
 
 # Or install from source
-git clone https://github.com/MOOKA-513/NullShare.git
-cd NullShare
+  git clone https://github.com/MOOKA-513/NullShare.git
+  cd NullShare
 ## STEP 1: Create Virtual Environment and Install Dependencies ( very importantt )
-bash
+
 # Create virtual environment
-python3 -m venv venv
+  python3 -m venv venv
 
 # Activate it
 # On Linux/Mac:
-source venv/bin/activate
+  source venv/bin/activate
 # On Windows:
-# venv\Scripts\activate
+  venv\Scripts\activate
 
 # Install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-pip install -e .
-Basic Usage
-bash
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  pip install -e .
+  
+## Basic Usage
+
 # Share a single file
-nullshare share document.pdf
+  nullshare share document.pdf
 
 # Share a folder (auto-zips)
-nullshare share ~/Photos/
+  nullshare share ~/Photos/
 
 # Share with password protection
-nullshare share --password secret file.txt
+  nullshare share --password secret file.txt
 
 # Share with auto-timeout (5 minutes)
-nullshare share --timeout 300 file.txt
+  nullshare share --timeout 300 file.txt
+  
 📖 How It Works
-Start Sharing
-
-bash
-nullshare share myfile.pdf
-Scan QR Code
-
-Open your phone's camera
-
-Scan the QR code shown in terminal
-
-Make sure phone is on same WiFi
-
-Download
-
-Webpage opens in phone browser
-
-Tap download button
-
-File transfers at WiFi speed
+>>> Start Sharing
+  nullshare share myfile.pdf
+>>> Scan QR Code
+>>> Open your phone's camera
+>>> Scan the QR code shown in terminal
+>>> Make sure phone is on same WiFi
+>>> Download
+>>> Webpage opens in phone browser
+>>> Tap download button
+>>> File transfers at WiFi speed
 
 🛠️ CLI Commands
-bash
+
 # Share files/folders
-nullshare share <file1> <file2> ...
+  nullshare share <file1> <file2> ...
 
 # Options
   --port PORT           Port to use (0 = auto)
@@ -97,31 +89,32 @@ nullshare share <file1> <file2> ...
   --verbose             Show detailed information
 
 # Server management
-nullshare status        # Check if server is running
-nullshare stop         # Stop running server
-nullshare discover     # Discover servers on network
+  nullshare status        # Check if server is running
+  nullshare stop         # Stop running server
+  nullshare discover     # Discover servers on network
 
 # Help
-nullshare --help       # Show all commands
-nullshare share --help # Show share command help
+  nullshare --help       # Show all commands
+  nullshare share --help # Show share command help
+
 🎯 Examples
-bash
 # Share multiple files
-nullshare share image1.jpg image2.png document.pdf
+  nullshare share image1.jpg image2.png document.pdf
 
 # Share current directory
-nullshare share .
+  nullshare share .
 
 # Share with custom port
-nullshare share --port 9090 file.txt
+  nullshare share --port 9090 file.txt
 
 # Share sensitive files with password
-nullshare share --password mypass secret_document.pdf
+  nullshare share --password mypass secret_document.pdf
 
 # Share for one-time download only
-nullshare share --one-time invoice.pdf
+  nullshare share --one-time invoice.pdf
+  
 🏗️ Architecture
-text
+
 ┌─────────────┐     QR Code     ┌─────────────┐
 │   Desktop   │─────────────────│    Phone    │
 │   (Server)  │◄──WiFi Transfer─│  (Browser)  │
@@ -132,30 +125,32 @@ text
   Local HTTP Server             Web Interface
        │                               │
   File/Zip Serving              File Download
+
 🔧 Development
-bash
+
 # Clone repository
-git clone https://github.com/MOOKA-513/NullShare.git
-cd NullShare
+  git clone https://github.com/MOOKA-513/NullShare.git
+  cd NullShare
 
 # Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+  python -m venv venv
+  source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install development dependencies
-pip install -e ".[dev]"
+  pip install -e ".[dev]"
 
 # Run tests
-pytest
+  pytest
 
 # Run linter
-black nullshare/
-flake8 nullshare/
+  black nullshare/
+  flake8 nullshare/
 
 # Run type checking
-mypy nullshare/
+  mypy nullshare/
+  
 📁 Project Structure
-text
+
 NullShare/
 ├── nullshare/          # Main package
 │   ├── cli.py         # Command-line interface
@@ -167,7 +162,9 @@ NullShare/
 ├── examples/          # Usage examples
 ├── pyproject.toml     # Project configuration
 └── README.md          # This file
+
 🤝 Contributing
+
 Contributions are welcome! Here's how you can help:
 
 Report Bugs - Open an issue with detailed information
@@ -181,6 +178,7 @@ Improve Documentation - Help make NullShare easier to use
 Please read our Contributing Guidelines before submitting.
 
 🐛 Troubleshooting
+
 Problem: Phone can't connect
 
 ✅ Ensure both devices are on same WiFi
