@@ -1,13 +1,13 @@
-
 # NullShare 📡➡️📱
 
-**Share files from your computer to phone instantly via QR code. No internet, no cloud, just local WiFi.**
+Share files from your computer to phone instantly via QR code.  
+No internet, no cloud, just local WiFi.
 
 <div align="center">
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/MOUKA-513/NullShare/pulls)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 </div>
 
@@ -16,37 +16,44 @@
   <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/images/Screenshot%20From%202026-01-07%2016-29-54.png" width="45%" alt="NullShare Mobile Interface">
 </p>
 
+---
+
 ## 📋 Table of Contents
-- [✨ Features](#-features)
-- [🚀 Quick Start](#-quick-start)
-- [📦 Installation](#-installation)
-- [💻 Basic Usage](#-basic-usage)
-- [📖 How It Works](#-how-it-works)
-- [🛠️ CLI Commands](#️-cli-commands)
-- [🎯 Examples](#-examples)
-- [🏗️ Architecture](#️-architecture)
-- [🔧 Development](#-development)
-- [📁 Project Structure](#-project-structure)
-- [🤝 Contributing](#-contributing)
-- [🐛 Troubleshooting](#-troubleshooting)
-- [📄 License](#-license)
-- [🙏 Acknowledgments](#-acknowledgments)
-- [📞 Support](#-support)
+
+- ✨ Features
+- 🚀 Quick Start
+- 📦 Installation
+- 💻 Basic Usage
+- 📖 How It Works
+- 🛠️ CLI Commands
+- 🎯 Examples
+- 🏗️ Architecture
+- 🔧 Development
+- 📁 Project Structure
+- 🤝 Contributing
+- 🐛 Troubleshooting
+- 📄 License
+- 🙏 Acknowledgments
+- 📞 Support
+
+---
 
 ## ✨ Features
 
-- ⚡ **Blazing Fast** - LAN transfer speeds (much faster than internet)
-- 🔒 **100% Private** - Files never leave your local network
-- 📱 **No App Needed** - Works in any mobile browser
-- 🎯 **One Command** - Simple CLI interface
-- 🐧 **Cross-Platform** - Windows, Linux, macOS
-- 🔐 **Password Protection** - Optional security for sensitive files
-- ⏱️ **Auto-Timeout** - Server stops automatically after transfer
-- 📦 **Folder Support** - Auto-zips folders for easy download
+- ⚡ **Blazing Fast** – LAN transfer speeds
+- 🔒 **100% Private** – Files never leave your local network
+- 📱 **No App Needed** – Works in any mobile browser
+- 🎯 **One Command** – Simple CLI interface
+- 🐧 **Cross-Platform** – Windows, Linux, macOS
+- 🔐 **Password Protection** – Optional security
+- ⏱️ **Auto-Timeout** – Server stops automatically
+- 📦 **Folder Support** – Auto-zips folders
+
+---
 
 ## 🚀 Quick Start
 
-### Installation
+### 📦 Installation
 
 ```bash
 # Install from PyPI (coming soon)
@@ -56,199 +63,172 @@ pip install nullshare
 git clone https://github.com/MOUKA-513/NullShare.git
 cd NullShare
 pip install -e .
-Basic Usage
-bash
+```
+### 💻 Basic Usage
+```bash
 # Share a single file
 nullshare share document.pdf
 
-# Share a folder (auto-zips)
+# Share a folder
 nullshare share ~/Photos/
 
-# Share with password protection
+# Password protection
 nullshare share --password secret file.txt
 
-# Share with auto-timeout (5 minutes)
+# Auto-timeout (5 minutes)
 nullshare share --timeout 300 file.txt
-📖 How It Works
-1. Start Sharing
-bash
+```
+### 📖 How It Works
+1️⃣ Start Sharing
+```bash
 nullshare share myfile.pdf
-2. Scan QR Code
-Open your phone's camera
+```
+2️⃣ Scan QR Code
 
-Scan the QR code shown in terminal
+- Open phone camera
 
-Make sure phone is on same WiFi
+- Scan QR code from terminal
+  <p align="center"> <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/images/Screenshot%20From%202026-01-07%2016-29-04.png" width="400" alt="QR Code Interface"> </p>
 
-3. Download
-Webpage opens in phone browser
+- Ensure same WiFi network
 
-Tap download button
+3️⃣ Download
 
-File transfers at WiFi speed
+- Browser opens automatically
 
-<p align="center"> <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/images/Screenshot%20From%202026-01-07%2016-29-04.png" width="400" alt="QR Code Interface"> </p>
-🛠️ CLI Commands
-Share Files/Folders
-bash
+- Tap download
+  <p align="center"> <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/images/Screenshot%20From%202026-01-07%2016-29-54.png" width="400" alt="Download Interface"> </p>
+- Transfer at WiFi speed
+
+
+### 🛠️ CLI Commands
+
+- Share Files/Folders
+```bash
 nullshare share <file1> <file2> ...
-Options:
+```
+| Option              | Description            | Default |
+| ------------------- | ---------------------- | ------- |
+| `--port PORT`       | Port to use (0 = auto) | 0       |
+| `--no-zip`          | Don't zip folders      | False   |
+| `--password TEXT`   | Password protection    | None    |
+| `--timeout SECONDS` | Auto-stop              | 300     |
+| `--one-time`        | Download once          | False   |
+| `--no-qr`           | Hide QR code           | False   |
+| `--clean`           | Clear screen           | False   |
+| `--verbose`         | Verbose output         | False   |
 
-Option	Description	Default
---port PORT	Port to use (0 = auto)	0
---no-zip	Don't zip folders	False
---password TEXT	Set password protection	(none)
---timeout SECONDS	Auto-stop after N seconds	300
---one-time	Files can only be downloaded once	False
---no-qr	Don't show QR code	False
---clean	Clear screen before showing QR	False
---verbose	Show detailed information	False
---help	Show help message	-
-Server Management
-bash
-nullshare status        # Check if server is running
-nullshare stop         # Stop running server
-nullshare discover     # Discover servers on network
-Help
-bash
-nullshare --help       # Show all commands
-nullshare share --help # Show share command help
-🎯 Examples
-bash
-# Share multiple files
+- Server Management
+  
+```bash
+nullshare status
+nullshare stop
+nullshare discover
+```
+- Help
+```bash
+nullshare --help
+nullshare share --help
+```
+### 🛠️ CLI Commands
+
+```bash
 nullshare share image1.jpg image2.png document.pdf
-
-# Share current directory
 nullshare share .
-
-# Share with custom port
 nullshare share --port 9090 file.txt
-
-# Share sensitive files with password
-nullshare share --password mypass secret_document.pdf
-
-# Share for one-time download only
+nullshare share --password mypass secret.pdf
 nullshare share --one-time invoice.pdf
-🏗️ Architecture
-text
+```
+### 🏗️ Architecture
+
+```bash
 ┌─────────────┐     QR Code     ┌─────────────┐
-│   Desktop   │─────────────────│    Phone    │
-│   (Server)  │◄──WiFi Transfer─│  (Browser)  │
+│   Desktop   │────────────────▶│    Phone    │
+│   (Server)  │◀──WiFi Transfer │  (Browser)  │
 └─────────────┘                 └─────────────┘
        │                               │
-  Python + Flask                 Any Mobile Browser
+  Python + Flask                 Mobile Browser
        │                               │
   Local HTTP Server             Web Interface
-       │                               │
-  File/Zip Serving              File Download
-Technical Flow:
+```
+## Flow:
+  1. CLI starts local Flask server
+  2. QR code generated with IP + port
+  3. Phone connects via browser
+  4. File transfers over WiFi
+  5. Server auto-stops 
 
-CLI starts a local HTTP server with Flask
-
-Generates QR code with local IP and port
-
-Mobile device scans QR and connects via browser
-
-File transfer happens over local WiFi network
-
-Server auto-terminates after timeout or completion
-
-🔧 Development
-Setup Development Environment
-bash
-# Clone repository
+### 🔧 Development
+- Setup
+```bash
 git clone https://github.com/MOUKA-513/NullShare.git
 cd NullShare
-
-# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
-
-# Install development dependencies
 pip install -e ".[dev]"
-Testing & Quality
-bash
-# Run tests
+```
+- Testing & Quality
+```bash
 pytest
-
-# Run linter
 black nullshare/
 flake8 nullshare/
-
-# Run type checking
 mypy nullshare/
-📁 Project Structure
-text
+```
+###📁 Project Structure
+```bash
 NullShare/
-├── nullshare/          # Main package
-│   ├── cli.py         # Command-line interface
-│   ├── server.py      # HTTP server
-│   ├── qr_generator.py # QR code generation
-│   ├── utils.py       # Utilities
-│   └── templates/     # Web templates
-├── tests/             # Test suite
-├── examples/          # Usage examples
-├── images/            # Screenshots and assets
-├── pyproject.toml     # Project configuration
-├── requirements.txt   # Dependencies
-├── setup.py          # Package setup
-├── LICENSE           # MIT License
-└── README.md         # This file
-🤝 Contributing
-Contributions are welcome! Here's how you can help:
+├── nullshare/
+│   ├── cli.py
+│   ├── server.py
+│   ├── qr_generator.py
+│   ├── utils.py
+│   └── templates/
+├── tests/
+├── examples/
+├── images/
+├── pyproject.toml
+├── requirements.txt
+├── setup.py
+├── LICENSE
+└── README.md
+```
+### 🤝 Contributing
+ - Report bugs
+ - Suggest features
+ - Submit pull requests
+ - Improve documentation
+   
+### Workflow
+```bash
+git checkout -b feature/AmazingFeature
+git commit -m "Add AmazingFeatures"
+git push origin features/AmazingFeatures
+```
+### 🐛 Troubleshooting
+## Phone can't connect
+ - Same WIFI
+ - Check firewall
+ - Disable VPN
+## QR not working
+ - Ensure http://
+ - Good lighting
+## Slow transfer
+ - Large files take time
+ - Check WIFI signal
 
-Report Bugs - Open an issue with detailed information
+### 📄 License
+MIT License ---- see LICENSE file.
+### 🙏 Acknowledgments
+Inspired by Snapdrop & LocalSend
+Built with Flask, Click, QRCode
+### 📞 Support
+ - 📧 Issues: GitHub Issues
+ - ⭐ Star the repo if you like it!
+<div align="center"> <p><strong>Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a></strong></p> <p> <a href="https://github.com/MOUKA-513/NullShare/stargazers"> <img src="https://img.shields.io/github/stars/MOUKA-513/NullShare?style=social"> </a> <a href="https://github.com/MOUKA-513/NullShare/forks"> <img src="https://img.shields.io/github/forks/MOUKA-513/NullShare?style=social"> </a> </p> </div>
 
-Suggest Features - Share your ideas for improvement
 
-Submit Pull Requests - Fix bugs or add features
 
-Improve Documentation - Help make NullShare easier to use
 
-Please read our Contributing Guidelines before submitting.
 
-Development Workflow:
-Fork the repository
 
-Create a feature branch (git checkout -b feature/AmazingFeature)
-
-Commit your changes (git commit -m 'Add some AmazingFeature')
-
-Push to the branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-🐛 Troubleshooting
-Problem: Phone can't connect
-✅ Solution: Ensure both devices are on same WiFi network
-✅ Solution: Check firewall allows connections on the port
-✅ Solution: Try disabling VPN on either device
-
-Problem: QR code doesn't work
-✅ Solution: Make sure URL in QR starts with http:// not https://
-✅ Solution: Some cameras need good lighting for QR scanning
-
-Problem: Slow transfer
-✅ Solution: This uses local network speed - much faster than internet
-✅ Solution: Large files (>1GB) may take a few minutes
-✅ Solution: Ensure good WiFi signal strength
-
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-🙏 Acknowledgments
-Inspired by local file sharing tools like Snapdrop and LocalSend
-
-Built with amazing Python libraries: Flask, Click, QRCode
-
-Thanks to all contributors and users who provide feedback
-
-📞 Support
-📧 Issues: GitHub Issues
-
-💬 Discussion: GitHub Discussions
-
-⭐ Star: If you find this useful, please star the repository!
-
-<div align="center"> <p><strong>Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a></strong></p> <p> <a href="https://github.com/MOUKA-513/NullShare/stargazers"> <img src="https://img.shields.io/github/stars/MOUKA-513/NullShare?style=social" alt="GitHub Stars"> </a> <a href="https://github.com/MOUKA-513/NullShare/forks"> <img src="https://img.shields.io/github/forks/MOUKA-513/NullShare?style=social" alt="GitHub Forks"> </a> </p> </div> ```
