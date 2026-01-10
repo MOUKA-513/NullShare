@@ -40,9 +40,9 @@ nullshare = "nullshare.cli:main"
 nullshare-gui = "nullshare.gui:main"  # We'll add GUI later
 
 [project.urls]
-Homepage = "https://github.com/MOOKA-513/NullShare"
-Repository = "https://github.com/MOOKA-513/NullShare"
-Issues = "https://github.com/MOOKA-513/NullShare/issues"
+Homepage = "https://github.com/MOUKA-513/NullShare"
+Repository = "https://github.com/MOUKA-513/NullShare"
+Issues = "https://github.com/MOUKA-513/NullShare/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
