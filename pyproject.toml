@@ -7,7 +7,7 @@ name = "nullshare"
 version = "0.1.0"
 description = "Share files via QR code on local network - No internet, no cloud, just local WiFi"
 authors = [
-    {name = "MOOKA-513", email = "mouka-513@proton.me"},
+    {name = "MOUKA-513", email = "mouka-513@proton.me"},
 ]
 readme = "README.md"
 license = {text = "MIT"}
