@@ -62,6 +62,9 @@ pip install nullshare
 # Or install from source
 git clone https://github.com/MOUKA-513/NullShare.git
 cd NullShare
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 pip install -e .
 ```
 ### 💻 Basic Usage
