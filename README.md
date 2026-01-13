@@ -30,7 +30,6 @@
 - 🏗️ Architecture
 - 🔧 Development
 - 📁 Project Structure
-- 🤝 Contributing
 - 🐛 Troubleshooting
 - 📄 License
 - 🙏 Acknowledgments
@@ -56,10 +55,7 @@
 ### 📦 Installation
 
 ```bash
-# Install from PyPI (coming soon)
-pip install nullshare
-
-# Or install from source
+# Install from source
 git clone https://github.com/MOUKA-513/NullShare.git
 cd NullShare
 python -m venv venv
@@ -121,13 +117,6 @@ nullshare share <file1> <file2> ...
 | `--clean`           | Clear screen           | False   |
 | `--verbose`         | Verbose output         | False   |
 
-- Server Management
-  
-```bash
-nullshare status
-nullshare stop
-nullshare discover
-```
 - Help
 ```bash
 nullshare --help
@@ -202,12 +191,6 @@ NullShare/
  - Submit pull requests
  - Improve documentation
    
-### Workflow
-```bash
-git checkout -b feature/AmazingFeature
-git commit -m "Add AmazingFeatures"
-git push origin features/AmazingFeatures
-```
 ### 🐛 Troubleshooting
 ## Phone can't connect
  - Same WIFI
@@ -221,7 +204,7 @@ git push origin features/AmazingFeatures
  - Check WIFI signal
 
 ### 📄 License
-MIT License ---- see LICENSE file.
+MIT License ---- see _LICENSE_ file.
 ### 🙏 Acknowledgments
 Inspired by Snapdrop & LocalSend
 Built with Flask, Click, QRCode
