@@ -1,7 +1,7 @@
 # NullShare 📡➡️📱
 
 - Share files from your computer to phone instantly via QR code.  
-- No internet, no cloud, just local WiFi.
+- No cloud, just local WiFi.
 
 <div align="center">
 
