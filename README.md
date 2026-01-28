@@ -1,6 +1,8 @@
 # NullShare 📡
 
-**Share files instantly via QR code on your local network - no internet, no cloud, just local WiFi.**
+*Share files instantly via QR code on your local network - no internet, no cloud, just local WiFi.*
+
+***⚠️NOTE : I built this tool because I needed a simple way to send files from my computer to my phone.***
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.7%2B-blue" alt="Python Version">
@@ -13,188 +15,113 @@
   <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/assets/demo.gif" width="600" alt="NullShare Demo">
 </p>
 
-## ✨ Features
+![NullShare Screenshot](screenshots/nullshare.png)
 
-- **⚡ Instant Sharing**: Share files with one command, no configuration needed
-- **📱 QR Code**: Scan with phone camera - no app required!
-- **🔒 Security**: Password protection & one-time download options
-- **🌐 Local Network**: Works without internet on any WiFi network
-- **📊 Multiple Files**: Share files, folders, or entire directories
-- **🔄 Cross-Platform**: Works on Windows, Linux, and macOS
-- **🎯 Auto-Discovery**: Find other NullShare servers on your network
-- **⏱️ Auto-Cleanup**: Timeout feature for automatic shutdown
-- **🎨 Beautiful CLI**: Professional ASCII art and color-coded interface
+## ✨ What Does NullShare Do?
 
-## 🚀 Quick Start
+NullShare is a **privacy-focused, lightning-fast** tool that lets you transfer files from your computer to your phone **instantly** using a QR code. It creates a local web server on your computer and generates a QR code that your phone scans to download files directly over WiFi.
 
-### Installation (One Command)
+### 🚀 **Key Features**
+- ⚡ **Blazing Fast** - LAN transfer speeds (no internet required)
+- 🔒 **100% Private** - Files never leave your local network
+- 📱 **No App Needed** - Works in any mobile browser
+- 🎯 **One-Command Simplicity** - Simple CLI interface
+- 🐧 **Cross-Platform** - Windows, Linux, macOS
+- 🔐 **Password Protection** - Optional security for sensitive files
+- ⏱️ **Auto-Timeout** - Server stops automatically after transfer
+- 📦 **Folder Support** - Automatically zips folders for transfer
 
+## 📸 Screenshots
+
+### 1. Starting a File Share 
+![Starting File Share](screenshots/Screenshot-1-nullshare.png)
+*Start sharing with a single command ``` nullshare share TEST.pdf ``` - generates QR code instantly*
+
+### 2. QR Code for Phone Connection
+![QR Code Display](screenshots/Screenshot-2-nullshare.png)
+*Scan this QR code with your phone's camera to connect*
+
+### 3. Mobile Download Interface
+![Mobile Download Page](screenshots/Screenshot-3-nullshare.png)
+*Clean web interface on your phone for downloading files*
+
+## 🛠️ Installation
+
+
+### Prerequisites
+- Python 3.7 or higher
+- Git (optional, for installation from source)
+
+### Manual Install
 ```bash
-# Install from PyPI (recommended)
-pip install nullshare
-
-# Or install from source
+# Clone the repository
 git clone https://github.com/MOUKA-513/NullShare.git
 cd NullShare
-pip install .
+
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate    # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -e .
 ```
-
-## Quick Usage
-
-# Share a file
+## Quick Start Guide
+### Share a Single File
 ```bash
 nullshare share document.pdf
 ```
-# Share a folder
+**this will:**
+- **1.** Start a local server
+- **2.** Generate a QR code in your terminal
+- **3.** Wait for your phone to connect
+### Share Multiple Files
 ```bash
-nullshare share photos/
+nullshare share image1.jpg image2.png document.pdf
 ```
-# Share with password
-```bash 
-nullshare share secret.txt --password mypass
-```
-
-# Share for one-time download
-```bashnullshare share file.zip --one-time
-```
-# Auto-stop after 5 minutes
+### Share an Entire Folder
 ```bash
-nullshare share presentation.pptx --timeout 300
+nullshare share ~/Downloads/my_project/
+# Folders are automatically zipped for easy transfer
 ```
-
-## Installation Guide
-
-# Standard Installation
+## Advanced Usage
+### Password Protection
 ```bash
-# Using pip (easiest)
- pip install nullshare
-
-# Using pip3 if you have both Python 2 and 3
-pip3 install nullshare
+nullshare share --password mypass secret_document.pdf
+# It generate a link with a password token
 ```
-
-## Kali Linux / Debian / Ubuntu
-Newer Debian-based systems have system protection. Use one of these methods:
-
-# Method 1: Virtual Environment (Recommended)
-
+### Custom Port & Auto-Timeout
+- You can choose any of the --port & --timeout you want to use.
 ```bash
-python3 -m venv nullshare-venv
-source nullshare-venv/bin/activate
-pip install nullshare
+nullshare share --port 9090 --timeout 300 large_file.pdf
 ```
-# Method 2: User Installation
-
+- --port: Use a specific port (default: auto-assigned) 
+- --timeout: Auto-stop server after 300 seconds (5 minutes)
+### One-Time Download
 ```bash
-pip install --user nullshare
+nullshare share --one-time sensitive_file.txt
 ```
-# Method 3: Using pipx (for CLI tools)
-
+- Server stops after the first successful download.
+### All Available Options
 ```bash
-sudo apt install pipx
-pipx install nullshare
+nullshare --help
+nullshare share --help
+
+# Available options:
+# --port PORT        Port to use (0 = auto)
+# --no-zip          Don't zip folders
+# --password TEXT   Password protection
+# --timeout SECONDS Auto-stop server after seconds
+# --one-time        Allow only one download
+# --no-qr           Hide QR code display
+# --clean           Clear screen before showing QR
+# --verbose         Show detailed output
+#EXAMPLE :
+nullshare share ~/Desktop/Test.pdf --port 2222 --one-time --timeout 30 --clean
 ```
-## Windows
-```powershell
-# Command Prompt or PowerShell
-pip install nullshare
-
-# If Python is not in PATH
-python -m pip install nullshare
-```
-## macOS
-```bash
-brew install python  # If you don't have Python
-pip install nullshare
-```
-## Usage Examples
-# Basic File Sharing
-```bash
-# Share a single file
-nullshare share photo.jpg
-
-# Share multiple files
-nullshare share file1.txt file2.pdf file3.mp4
-
-# Share a folder (auto-zips)
-nullshare share documents/
-
-# Share folder without zipping
-nullshare share code/ --no-zip
-```
-## Advanced Features
-```bash
-# Password protection
-nullshare share confidential.pdf --password "secret123"
-
-# One-time download (file deleted after first download)
-nullshare share token.txt --one-time
-
-# Auto-shutdown after 10 minutes
-nullshare share movie.mp4 --timeout 600
-
-# Use specific port
-nullshare share data.csv --port 8080
-
-# Disable QR code (show URL only)
-nullshare share file.txt --no-qr
-
-# Clean screen before showing QR
-nullshare share image.png --clean
-```
-# Network Tools
-```bash
-# Discover other NullShare servers on network
-nullshare discover --scan
-
-# Check if server is running
-nullshare status --port 8000
-
-# Stop a running server
-nullshare stop --port 8000
-```
-# Command Reference
-```text
-nullshare [OPTIONS] COMMAND [ARGS]...
-
-Commands:
-  share       Share files/folders via QR code
-  status      Check if a NullShare server is running
-  stop        Stop a running NullShare server
-  discover    Discover NullShare servers on local network
-  version     Show version information and check for updates
-  download    Download files from a NullShare server URL
-
-Options:
-  --help      Show this message and exit
-  --version   Show version
-```
-# Share Command Options
-```text
-nullshare share [OPTIONS] [PATHS]...
-
-Options:
-  -p, --port INTEGER        Port to use (0 = auto)
-  --no-zip                  Do not zip folders, share contents individually
-  --password TEXT           Set password protection
-  -t, --timeout INTEGER     Auto-stop after N seconds
-  --one-time                Files can only be downloaded once
-  --no-qr                   Do not show QR code
-  --clean                   Clear screen before showing QR
-  -v, --verbose             Show detailed information
-  --no-banner               Do not show ASCII banner
-```
-##📱 How It Works
-1. Start Sharing: Run nullshare share your-file.txt
-
-2. Get QR Code: NullShare generates a QR code with local IP URL
-
-3. Scan on Phone: Open camera app and scan QR code
-
-4. Download: Files download directly to phone
-
-5. Auto-Cleanup: Server stops automatically or when you press Ctrl+C
-
+## How It Works - Simple 5-Step Process
 ```text
 ┌─────────────┐    Start     ┌─────────────┐    Generate    ┌─────────────┐
 │   Your PC   │─────────────▶│  NullShare  │─────────────▶│    QR Code   │
@@ -214,61 +141,38 @@ Options:
                          │   Directly to Phone │
                          └─────────────────────┘
 ```
-## Troubleshooting
-# Common Issues
-* "Server not accessible from phone"
-- Ensure both devices are on same WiFi network
 
-- Check firewall settings (allow port 8000)
+### Step-by-Step:
+- **1.** Start Sharing on your computer.
+  ```bash
+  nullshare share your-file.txt
+  ```
+- **2.** Get QR Code: NullShare generates a QR code with local IP URL.
+- **3.** Scan on Phone: Open camera app and scan QR code.
+- **4.** Download: Files download directly to phone.
+- **5.** Auto-Cleanup: Server stops automatically or when you press Ctrl+C
 
-- Try using --port 80 or --port 8080
-
-* "Externally managed environment" (Kali/Debian)
-```bash 
-# Use virtual environment
-python3 -m venv venv
-source venv/bin/activate
-pip install nullshare
+## Technical Architecture
+  ```text
+┌─────────────┐     QR Code     ┌─────────────┐
+│   Desktop   │────────────────▶│    Phone    │
+│   (Server)  │◀──WiFi Transfer │  (Browser)  │
+└─────────────┘                 └─────────────┘
+       │                               │
+  Python + Flask                 Mobile Browser
+       │                               │
+  Local HTTP Server             Web Interface
 ```
-# Network Ports
-* Default ports used:
 
-- 8000: Default NullShare port
+## 🔄 Comparison with Alternatives
+| Feature         | NullShare              | Email/Cloud        | USB Cable           | Other Tools        |
+|-----------------|------------------------|--------------------|---------------------|--------------------|
+| Speed           | LAN Speed (Fastest)    | Internet Speed     | USB 2.0 / 3.0       | Varies             |
+| Privacy         | Local Only             | Third-Party Servers| Direct              | Varies             |
+| Convenience     | QR Code Scan           | Multiple Steps     | Physical Connection | App Required       |
+| Setup Time      | Seconds                | Minutes            | Minutes             | Varies             |
+| Cross-Platform  | Yes                    | Yes                | OS Dependent        | Often Limited      |
 
-- 5454: Auto-selected if 8000 is busy
-
-- Any port: Specify with --port YOUR_PORT
-## 🤝 Contributing
-We love contributions! Here's how to help:
-
-1. Fork the repository
-
-2. Create a feature branch (git checkout -b feature/amazing-feature)
-
-3. Commit your changes (git commit -m 'Add amazing feature')
-
-4. Push to the branch (git push origin feature/amazing-feature)
-
-5. Open a Pull Request
-
-## Development Setup
-```bash
-# Clone the repo
-git clone https://github.com/MOUKA-513/NullShare.git
-cd NullShare
-
-# Install in development mode
-pip install -e .
-
-# Install development dependencies
-pip install -e ".[dev]"
-
-# Run tests
-pytest
-
-# Format code
-black nullshare/
-```
 ## 📄 License
 MIT License - see LICENSE file for details.
 
@@ -286,6 +190,5 @@ MIT License - see LICENSE file for details.
 * Youtube : https://www.youtube.com/@MOUKA-513
 * Twitter : https://www.x.com/m0ukaa513
 * Instagram : https://www.instagram.com/mouka.513/
-* 
 <p align="center"> Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a> </p><p align="center"> ⭐ Star this repo if you find it useful! </p> ```
 
