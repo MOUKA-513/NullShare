@@ -38,15 +38,15 @@ NullShare is a **privacy-focused, lightning-fast** tool that lets you transfer f
 ## 📸 Screenshots
 
 ### 1. Starting a File Share 
-![Starting File Share](screenshots/Screenshot-1-nullshare.png)
+![Starting File Share](screenshots/nullshare-1.png)
 *Start sharing with a single command ``` nullshare share TEST.pdf ``` - generates QR code instantly*
 
 ### 2. QR Code for Phone Connection
-![QR Code Display](screenshots/Screenshot-2-nullshare.png)
+![QR Code Display](screenshots/nullshare-2.png)
 *Scan this QR code with your phone's camera to connect*
 
 ### 3. Mobile Download Interface
-![Mobile Download Page](screenshots/Screenshot-3-nullshare.png)
+![Mobile Download Page](screenshots/nullshare-3.png)
 *Clean web interface on your phone for downloading files*
 
 ## 🛠️ Installation
