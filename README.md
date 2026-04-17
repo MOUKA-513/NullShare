@@ -189,10 +189,15 @@ MIT License - see LICENSE file for details.
 
 - You for using NullShare! ❤️
 
-### Links
-* GitHub: https://github.com/MOUKA-513/NullShare
-* Youtube : https://www.youtube.com/@MOUKA-513
-* Twitter : https://www.x.com/m0ukaa513
-* Instagram : https://www.instagram.com/mouka.513/
+### 🤝 Let's Connect!
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mouka-513ooo/)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/m0ukaa513)
+[![Email](https://img.shields.io/badge/Email-Contact-8B89CC?style=for-the-badge&logo=protonmail&logoColor=white)](mailto:mouka-513ooo@protonmail.com)
+
+</div>
+
 <p align="center"> Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a> </p><p align="center"> ⭐ Star this repo if you find it useful! </p> ```
 
