@@ -1,8 +1,12 @@
-# NullShare 📡
+<div align="center" > 
+  
+   # NullShare 📡 
+
 
 *Share files instantly via QR code on your local network - no internet, no cloud, just local WiFi.*
 
 ***⚠️NOTE : I built this tool because I needed a simple way to send files from my computer to my phone.***
+</div>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.7%2B-blue" alt="Python Version">
