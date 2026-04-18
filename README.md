@@ -15,9 +15,6 @@
   <img src="https://img.shields.io/badge/Status-Stable-brightgreen" alt="Status">
 </p>
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/MOUKA-513/NullShare/main/assets/demo.gif" width="600" alt="NullShare Demo">
-</p>
 
 ![NullShare Screenshot](screenshots/nullshare.png)
 
@@ -199,5 +196,5 @@ MIT License - see LICENSE file for details.
 
 </div>
 
-<p align="center"> Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a> </p><p align="center"> ⭐ Star this repo if you find it useful! </p> ```
+<p align="center"> Made with ❤️ by <a href="https://github.com/MOUKA-513">MOUKA-513</a> </p><p align="center"> ⭐ Star this repo if you find it useful! </p>
 
