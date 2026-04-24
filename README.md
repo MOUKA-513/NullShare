@@ -43,7 +43,7 @@ NullShare is a **privacy-focused, lightning-fast** tool that lets you transfer f
 *Scan this QR code with your phone's camera to connect*
 
 ### 3. Mobile Download Interface
-![Mobile Download Page](shots/shot-3.PNG)
+![Mobile Download Page](shots/shot-3.png)
 *Clean web interface on your phone for downloading files*
 
 ## 🛠️ Installation
